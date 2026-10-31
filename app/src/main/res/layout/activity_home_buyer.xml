@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF7FA"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <!-- Imagen Logo Horizontal -->
+        <ImageView
+            android:id="@+id/imLogo"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:src="@drawable/logo_horizon"
+            android:contentDescription="Logo Horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Notificaciones -->
+    <ImageView
+        android:id="@+id/imgNotification"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/notificacion_rosa"
+        android:contentDescription="Notificaciones"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toTopOf="@id/imLogo"
+        app:layout_constraintBottom_toBottomOf="@id/imLogo"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Buscador -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilBuscar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            app:boxBackgroundColor="#FFFFFF"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusBottomEnd="25dp"
+            app:boxCornerRadiusBottomStart="25dp"
+            app:boxCornerRadiusTopEnd="25dp"
+            app:boxCornerRadiusTopStart="25dp"
+            app:endIconDrawable="@android:drawable/ic_menu_search"
+            app:layout_constraintTop_toBottomOf="@id/imLogo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etBuscar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Buscar amigurumis..." />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Banner -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardBanner"
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="25dp"
+            app:cardBackgroundColor="#FCE8EF"
+            app:layout_constraintTop_toBottomOf="@id/tilBuscar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pequeños detalles\nque hacen\ngrandes sonrisas"
+                    android:textAlignment="center"
+                    android:textColor="#6A4C93"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Categorías -->
+        <TextView
+            android:id="@+id/txtCategorias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categorías"
+            android:textColor="#6A4C93"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/cardBanner"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Productos destacados -->
+        <TextView
+            android:id="@+id/txtDestacados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Productos destacados"
+            android:textColor="#6A4C93"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/txtCategorias"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="80dp"/>
+
+        <!-- Bottom Navigation -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            app:itemIconTint="#9B7AE0"
+            app:itemTextColor="#9B7AE0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
