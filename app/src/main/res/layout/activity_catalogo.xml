@@ -165,7 +165,6 @@
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/carrito"
                             android:contentDescription="Agregar al carrito"/>
 
                     </LinearLayout>
@@ -220,7 +219,6 @@
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:src="@drawable/"
                                 android:contentDescription="Agregar al carrito"/>
 
                         </LinearLayout>
@@ -263,7 +261,7 @@
                             android:textStyle="bold"
                             android:textColor="#6A4C93"/>
 
-                        <<LinearLayout
+                        <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -281,7 +279,6 @@
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/carrito"
                             android:contentDescription="Agregar al carrito"/>
 
                     </LinearLayout>
@@ -334,7 +331,6 @@
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/carrito"
                             android:contentDescription="Agregar al carrito"/>
 
                     </LinearLayout>
