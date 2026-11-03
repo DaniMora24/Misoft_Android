@@ -67,13 +67,14 @@
                 app:boxCornerRadiusBottomStart="25dp"
                 app:boxCornerRadiusTopEnd="25dp"
                 app:boxCornerRadiusTopStart="25dp"
-                app:endIconDrawable="@android:drawable/ic_menu_search">
+                app:startIconDrawable="@drawable/lupa_vector">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etBuscar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Buscar amigurumis..." />
+                    android:hint="Buscar amigurumis..."
+                    android:paddingStart="40dp"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

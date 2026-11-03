@@ -17,7 +17,7 @@
             android:exported="true"/>
 
         <activity
-            android:name=".home_buyer"
+            android:name=".CatalogoActivity"
             android:exported="true">
 
             <intent-filter>
