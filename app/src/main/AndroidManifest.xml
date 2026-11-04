@@ -17,7 +17,7 @@
             android:exported="true"/>
 
         <activity
-            android:name=".ComprasActivity"
+            android:name=".DireccionActivity"
             android:exported="true">
 
             <intent-filter>
