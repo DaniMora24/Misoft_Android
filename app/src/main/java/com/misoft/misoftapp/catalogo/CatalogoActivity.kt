@@ -22,6 +22,8 @@ class CatalogoActivity : AppCompatActivity() {
                 R.id.bottomNavigation
             )
 
+        
+
         bottomNavigation.selectedItemId = R.id.categoria
 
         bottomNavigation.setOnItemSelectedListener {

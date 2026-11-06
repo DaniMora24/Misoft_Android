@@ -15,7 +15,7 @@
 
         <!-- Splash de 2 Seg-->
         <activity
-            android:name=".auth.SplashActivity"
+            android:name=".catalogo.CrearProductoActivity"
             android:exported="true">
 
             <intent-filter>
@@ -91,6 +91,10 @@
         <activity
             android:name=".perfil_cliente.DireccionActivity"
             android:exported="false" />
+        
+        <!-- Vendedor -->
+        
+
 
 
     </application>
