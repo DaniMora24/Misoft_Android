@@ -1,4 +1,4 @@
-package com.misoft.misoftapp
+package com.misoft.misoftapp.perfil_cliente
 
 import android.os.Bundle
 import android.widget.ImageView
@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.textfield.TextInputEditText
+import com.misoft.misoftapp.R
 
 class PersonalInfoActivity : AppCompatActivity() {
 
@@ -30,6 +31,23 @@ class PersonalInfoActivity : AppCompatActivity() {
 
         val imgEditarFechaNacimiento =
             findViewById<ImageView>(R.id.imgEditarFechaNacimiento)
+
+        //Flecha de retroceso
+
+        val imgBack =
+            findViewById<ImageView>(
+                R.id.imgBack
+            )
+
+        imgBack.setOnClickListener {
+
+            finish()
+
+        }
+
+
+        //Menu
+
 
         imgEditarNombre.setOnClickListener {
             mostrarBottomSheet(
@@ -103,5 +121,15 @@ class PersonalInfoActivity : AppCompatActivity() {
         dialog.setContentView(view)
 
         dialog.show()
+
+
+
+
+
+
+
     }
+
+
+
 }

@@ -12,12 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MisoftApp"
         tools:targetApi="31">
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"/>
 
+        <!-- Splash de 2 Seg-->
         <activity
-            android:name=".DireccionActivity"
+            android:name=".auth.SplashActivity"
             android:exported="true">
 
             <intent-filter>
@@ -26,6 +24,75 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Auth-->
+
+        <activity
+            android:name=".auth.LoginActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".auth.RegisterActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".auth.ForgetPassword"
+            android:exported="false"/>
+
+        <!-- Home-->
+        <activity
+            android:name=".home.HomeBuyerActivity"
+            android:exported="false" />
+
+
+        <!-- Catalogo-->
+        <activity
+            android:name=".catalogo.CatalogoActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".catalogo.FavoritosActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".catalogo.DetalleProductoActivity"
+            android:exported="false"/>
+
+
+        <!--Carrito-->
+
+        <activity
+            android:name=".compras.CarritoActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".compras.DetalleCompraActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".compras.ComprasActivity"
+            android:exported="false"/>
+
+
+        <!-- Perfil-->
+
+        <activity
+            android:name=".perfil_cliente.PerfilClienteActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".perfil_cliente.PersonalInfoActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".perfil_cliente.MetodoPagoActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".perfil_cliente.DireccionActivity"
+            android:exported="false" />
+
+
     </application>
 
 </manifest>

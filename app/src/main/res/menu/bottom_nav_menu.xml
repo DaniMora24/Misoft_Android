@@ -12,7 +12,7 @@
         android:title="Categorias" />
 
     <item
-        android:id="@+id/Carrito"
+        android:id="@+id/carrito"
         android:icon="@drawable/carrito_de_compras"
         android:title="Carrito" />
 

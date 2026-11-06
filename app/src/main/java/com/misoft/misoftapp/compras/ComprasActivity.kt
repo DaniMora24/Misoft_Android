@@ -1,8 +1,9 @@
-package com.misoft.misoftapp
+package com.misoft.misoftapp.compras
 
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.misoft.misoftapp.R
 
 class ComprasActivity : AppCompatActivity() {
 
@@ -25,6 +26,19 @@ class ComprasActivity : AppCompatActivity() {
             dialog.setContentView(view)
 
             dialog.show()
+
+        }
+
+        //Flecha de retroceso
+
+        val imgBack =
+            findViewById<ImageView>(
+                R.id.imgBack
+            )
+
+        imgBack.setOnClickListener {
+
+            finish()
 
         }
 
