@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Barra Superior -->
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="5dp"
+        android:layout_gravity="center"
+        android:background="#D3D3D3" />
+
+    <!-- Título -->
+
+    <TextView
+        android:id="@+id/txtTituloNequi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Agregar cuenta Nequi"
+        android:textColor="#6A4C93"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Logo -->
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/nequi_logo" />
+
+    <!-- Número Celular -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Número Celular"
+        android:textColor="#6A4C93"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtNumeroNequi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="3001234567"
+            android:inputType="phone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Alias -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Alias"
+        android:textColor="#6A4C93"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtAliasNequi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ej: Nequi Personal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Información -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="El número registrado será utilizado para realizar pagos mediante Nequi."
+        android:textColor="#757575"
+        android:textSize="13sp" />
+
+    <!-- Botón Guardar -->
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGuardarNequi"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="24dp"
+        android:text="Guardar cuenta"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:backgroundTint="#9B7AE0"
+        app:cornerRadius="28dp" />
+
+</LinearLayout>
