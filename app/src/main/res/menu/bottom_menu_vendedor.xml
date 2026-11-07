@@ -14,7 +14,7 @@
     <item
         android:id="@+id/pedidos"
         android:icon="@drawable/envio_rapido"
-        android:title="Envio" />
+        android:title="Pedidos" />
 
 
     <item

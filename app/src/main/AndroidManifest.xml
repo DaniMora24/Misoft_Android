@@ -15,7 +15,7 @@
 
         <!-- Splash de 2 Seg-->
         <activity
-            android:name=".catalogo.CrearProductoActivity"
+            android:name=".home.HomeVendedorActivity"
             android:exported="true">
 
             <intent-filter>
@@ -93,7 +93,28 @@
             android:exported="false" />
         
         <!-- Vendedor -->
+
+      <!--  <activity
+            android:name=".home.HomeVendedorActivity"
+            android:exported="false" /> -->
+
+
+        <activity
+            android:name=".estadisticas.EstadisticasVendedorActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".catalogo.ProductosVendedorActivity"
+            android:exported="false" />
         
+        <activity
+            android:name=".pedidos.GestionPedidosActivity"
+            android:exported="false" />
+
+        <activity android:name=".perfil_vendedor.PerfilVendedorActivity"
+            android:exported="false" />
+
+       
 
 
 

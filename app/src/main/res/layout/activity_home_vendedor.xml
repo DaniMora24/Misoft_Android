@@ -365,11 +365,12 @@
         android:id="@+id/bottomNavigationSeller"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
         app:menu="@menu/bottom_menu_vendedor"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:itemIconTint="#9B7AE0"
+        app:itemTextColor="#9B7AE0"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

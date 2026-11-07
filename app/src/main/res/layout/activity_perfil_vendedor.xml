@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF7FA">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationSeller"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
+
+            <!-- Titulo -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="MI TIENDA"
+                android:textColor="#6A4C93"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <!-- Foto Perfil -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="70dp"
+                app:cardElevation="4dp">
+
+                <ImageView
+                    android:id="@+id/imgPerfilTienda"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="24dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/usuario" />
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Nombre -->
+
+            <TextView
+                android:id="@+id/txtNombreTienda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Cristian Crochet"
+                android:textColor="#6A4C93"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Correo -->
+
+            <TextView
+                android:id="@+id/txtCorreoTienda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="ventas@michigurumis.com"
+                android:textColor="#777777"
+                android:textSize="14sp" />
+
+            <!-- Información de la tienda -->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardInfoTienda"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp">
+
+                    <TextView
+                        android:layout_width="32dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="🏪"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:text="Información de la tienda"
+                        android:textColor="#6A4C93"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:id="@+id/imgInfoTienda"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/angulo_derecho"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Contacto -->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardContacto"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp">
+
+                    <TextView
+                        android:layout_width="32dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="📱"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:text="Información de contacto"
+                        android:textColor="#6A4C93"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:id="@+id/imgContacto"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/angulo_derecho"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Métodos de entrega -->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardEntrega"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp">
+
+                    <TextView
+                        android:layout_width="32dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="🚚"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:text="Métodos de entrega"
+                        android:textColor="#6A4C93"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:id="@+id/imgEntrega"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/angulo_derecho"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Horario -->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardHorario"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp">
+
+                    <TextView
+                        android:layout_width="32dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="🕒"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:text="Horario de atención"
+                        android:textColor="#6A4C93"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/imgHorario"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/angulo_derecho" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Reputación -->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardReputacion"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp">
+
+                    <TextView
+                        android:layout_width="32dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="⭐"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:text="Reputación y ventas"
+                        android:textColor="#6A4C93"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:id="@+id/imgReputacion"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/angulo_derecho"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- CERRAR SESION -->
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="0dp"
+                android:text="Cerrar sesión"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:backgroundTint="#9B7AE0"
+                app:cornerRadius="28dp"
+                app:icon="@drawable/cierre_usuario"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp"
+                app:iconTint="#FFFFFF"
+                app:iconSize="24dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationSeller"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_menu_vendedor"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:itemIconTint="#9B7AE0"
+        app:itemTextColor="#9B7AE0"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

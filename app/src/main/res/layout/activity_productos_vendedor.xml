@@ -20,16 +20,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
-            android:id="@+id/imgBack"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/flecha_pequena_izquierda"/>
+
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:gravity="center"
             android:layout_weight="1"
             android:text="Mis productos"
             android:textColor="#5D3FD3"
@@ -331,6 +328,8 @@
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:itemIconTint="#9B7AE0"
+        app:itemTextColor="#9B7AE0"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
