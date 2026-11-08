@@ -21,7 +21,7 @@ class ProductosVendedorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(
-            R.layout.activity_productos_vendedor
+            R.layout.vendedor_activity_productos
         )
 
         // ------------------------------------
@@ -230,7 +230,7 @@ class ProductosVendedorActivity : AppCompatActivity() {
         val dialog = BottomSheetDialog(this)
 
         val view = layoutInflater.inflate(
-            R.layout.bottom_crear_producto,
+            R.layout.vendedor_bottom_crear_producto,
             null
         )
 
@@ -297,7 +297,7 @@ class ProductosVendedorActivity : AppCompatActivity() {
         val dialog = BottomSheetDialog(this)
 
         val view = layoutInflater.inflate(
-            R.layout.bottom_detalle_producto_vendedor,
+            R.layout.vendedor_bottom_detalle_producto,
             null
         )
 

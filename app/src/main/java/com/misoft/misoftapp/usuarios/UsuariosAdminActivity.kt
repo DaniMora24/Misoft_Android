@@ -18,7 +18,7 @@ class UsuariosAdminActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(
-            R.layout.activity_usuarios_admin
+            R.layout.admin_activity_usuarios
         )
 
         val cardUsuario1 =
@@ -172,7 +172,7 @@ class UsuariosAdminActivity : AppCompatActivity() {
         val dialog = BottomSheetDialog(this)
 
         val view = layoutInflater.inflate(
-            R.layout.bottom_detalle_usuario_admin,
+            R.layout.admin_bottom_detalle_usuario,
             null
         )
 

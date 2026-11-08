@@ -9,7 +9,7 @@ class DetalleProductoActivity :AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detalle_producto)
+        setContentView(R.layout.cliente_activity_detalle_producto)
 
         //Flecha de retroceso
 

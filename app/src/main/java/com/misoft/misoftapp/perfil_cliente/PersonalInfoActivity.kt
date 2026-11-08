@@ -12,7 +12,7 @@ class PersonalInfoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_personal_info)
+        setContentView(R.layout.cliente_activity_personal_info)
 
         val imgEditarNombre =
             findViewById<ImageView>(R.id.imgEditarNombre)

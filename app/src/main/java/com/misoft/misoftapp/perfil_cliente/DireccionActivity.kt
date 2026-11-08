@@ -14,7 +14,7 @@ class DireccionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_direccion)
+        setContentView(R.layout.cliente_activity_direccion)
 
         val btnAgregarDireccion =
             findViewById<MaterialButton>(

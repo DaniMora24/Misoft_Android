@@ -21,7 +21,7 @@ class GestionPedidosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(
-            R.layout.actuvity_pedidos_vendedor
+            R.layout.vendedor_activity_pedidos
         )
 
         val imgDetallePedido124 =
@@ -155,7 +155,7 @@ class GestionPedidosActivity : AppCompatActivity() {
         val dialog = BottomSheetDialog(this)
 
         val view = layoutInflater.inflate(
-            R.layout.bottom_detalle_pedido,
+            R.layout.vendedor_bottom_detalle_pedido,
             null
         )
 

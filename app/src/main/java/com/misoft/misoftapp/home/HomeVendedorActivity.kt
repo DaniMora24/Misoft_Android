@@ -17,7 +17,7 @@ class HomeVendedorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(
-            R.layout.activity_home_vendedor
+            R.layout.vendedor_activity_home
         )
 
         val cardMisProductos =

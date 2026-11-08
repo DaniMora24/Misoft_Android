@@ -3,7 +3,6 @@ package com.misoft.misoftapp.home
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.misoft.misoftapp.R
 import com.misoft.misoftapp.estadisticas.ReportesAdminActivity
@@ -16,7 +15,7 @@ class HomeAdminActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(
-            R.layout.activity_home_admin
+            R.layout.admin_activity_home
         )
 
 

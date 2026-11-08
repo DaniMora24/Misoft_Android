@@ -12,7 +12,6 @@ import com.misoft.misoftapp.catalogo.ProductoAdminActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.misoft.misoftapp.home.HomeAdminActivity
 import com.misoft.misoftapp.estadisticas.ReportesAdminActivity
-import com.misoft.misoftapp.usuarios.UsuariosAdminActivity
 
 class VendedoresAdminActivity : AppCompatActivity() {
 
@@ -20,7 +19,7 @@ class VendedoresAdminActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(
-            R.layout.activity_vendedores_admin
+            R.layout.admin_activity_vendedores
         )
 
         val cardVendedor1 =
@@ -181,7 +180,7 @@ class VendedoresAdminActivity : AppCompatActivity() {
         val dialog = BottomSheetDialog(this)
 
         val view = layoutInflater.inflate(
-            R.layout.bottom_detalle_vendedor_admin,
+            R.layout.admin_bottom_detalle_vendedor,
             null
         )
 

@@ -15,7 +15,7 @@ class ProductoAdminActivity : AppCompatActivity () {
                 super.onCreate(savedInstanceState)
 
                 setContentView(
-                    R.layout.activity_producto_admin
+                    R.layout.admin_activity_producto
                 )
 
                 val nombreTienda =
@@ -95,7 +95,7 @@ class ProductoAdminActivity : AppCompatActivity () {
         val dialog = BottomSheetDialog(this)
 
         val view = layoutInflater.inflate(
-            R.layout.bottom_detalle_producto_admin,
+            R.layout.admin_bottom_detalle_producto,
             null
         )
 

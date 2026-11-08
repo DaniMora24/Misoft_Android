@@ -16,7 +16,7 @@ class EstadisticasVendedorActivity : AppCompatActivity() {
 
 
         setContentView(
-            R.layout.activity_estadisticas_vendedor
+            R.layout.vendedor_activity_estadisticas
         )
 
         val cardVentasTotales =
@@ -167,7 +167,7 @@ class EstadisticasVendedorActivity : AppCompatActivity() {
         val dialog = BottomSheetDialog(this)
 
         val view = layoutInflater.inflate(
-            R.layout.bottom_estadistica_vendedor,
+            R.layout.vendedor_bottom_estadistica,
             null
         )
 

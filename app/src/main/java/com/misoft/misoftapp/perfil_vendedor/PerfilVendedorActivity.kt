@@ -20,7 +20,7 @@ class PerfilVendedorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(
-            R.layout.activity_perfil_vendedor
+            R.layout.vendedor_activity_perfil
         )
 
         val cardInfoTienda =
@@ -184,7 +184,7 @@ class PerfilVendedorActivity : AppCompatActivity() {
         val dialog = BottomSheetDialog(this)
 
         val view = layoutInflater.inflate(
-            R.layout.bottom_perfil_vendedor,
+            R.layout.vendedor_bottom_perfil,
             null
         )
 

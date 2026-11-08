@@ -16,7 +16,7 @@ class PerfilClienteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_perfil)
+        setContentView(R.layout.cliente_activity_perfil)
 
         // Variable de Menu
 

@@ -15,7 +15,7 @@ class ReportesAdminActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(
-            R.layout.activity_reportes_admin
+            R.layout.admin_activity_reportes
         )
 
         val bottomNavigation =

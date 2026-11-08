@@ -15,7 +15,7 @@ class MetodoPagoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_metodos_pago)
+        setContentView(R.layout.cliente_activity_metodos_pago)
 
         val btnAgregarMetodo =
             findViewById<MaterialButton>(
@@ -118,7 +118,7 @@ class MetodoPagoActivity : AppCompatActivity() {
         val dialog = BottomSheetDialog(this)
 
         val view = layoutInflater.inflate(
-            R.layout.bottom_selector_pago,
+            R.layout.cliente_bottom_selector_pago,
             null
         )
 
@@ -191,7 +191,7 @@ class MetodoPagoActivity : AppCompatActivity() {
         val dialog = BottomSheetDialog(this)
 
         val view = layoutInflater.inflate(
-            R.layout.bottom_tarjeta_pago,
+            R.layout.cliente_bottom_tarjeta_pago,
             null
         )
 
@@ -212,7 +212,7 @@ class MetodoPagoActivity : AppCompatActivity() {
         val dialog = BottomSheetDialog(this)
 
         val view = layoutInflater.inflate(
-            R.layout.bottom_pse_pago,
+            R.layout.cliente_bottom_pse_pago,
             null
         )
 
@@ -227,7 +227,7 @@ class MetodoPagoActivity : AppCompatActivity() {
         val dialog = BottomSheetDialog(this)
 
         val view = layoutInflater.inflate(
-            R.layout.bottom_nequi_pago,
+            R.layout.cliente_bottom_nequi_pago,
             null
         )
 
@@ -248,7 +248,7 @@ class MetodoPagoActivity : AppCompatActivity() {
         val dialog = BottomSheetDialog(this)
 
         val view = layoutInflater.inflate(
-            R.layout.bottom_tarjeta_pago,
+            R.layout.cliente_bottom_tarjeta_pago,
             null
         )
 

@@ -8,7 +8,7 @@ class FavoritosActivity :AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_favoritos)
+        setContentView(R.layout.cliente_activity_favoritos)
 
         //Flecha de retroceso
 

@@ -7,6 +7,6 @@ class DetalleCompraActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detalle_compra)
+        setContentView(R.layout.cliente_activity_detalle_compra)
     }
 }

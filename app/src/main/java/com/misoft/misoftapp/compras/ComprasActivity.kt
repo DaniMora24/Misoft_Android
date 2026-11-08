@@ -9,7 +9,7 @@ class ComprasActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_compras)
+        setContentView(R.layout.cliente_activity_compras)
 
 
         val imgDetalle = findViewById<ImageView>(R.id.imgDetallePedido)
@@ -19,7 +19,7 @@ class ComprasActivity : AppCompatActivity() {
             val dialog = BottomSheetDialog(this)
 
             val view = layoutInflater.inflate(
-                R.layout.activity_detalle_compra,
+                R.layout.cliente_activity_detalle_compra,
                 null
             )
 
