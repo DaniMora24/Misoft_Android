@@ -12,15 +12,13 @@
         android:title="Usuarios" />
 
     <item
-        android:id="@+id/productos"
-        android:icon="@drawable/producto"
-        android:title="Productos" />
-
+        android:id="@+id/vendedores"
+        android:icon="@drawable/tienda"
+        android:title="Tiendas" />
 
     <item
-        android:id="@+id/perfil"
-        android:icon="@drawable/usuario"
-        android:title="Perfil" />
-
+        android:id="@+id/reportes"
+        android:icon="@drawable/ventas"
+        android:title="Reportes" />
 
 </menu>

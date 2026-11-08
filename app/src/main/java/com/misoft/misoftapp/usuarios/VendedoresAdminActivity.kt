@@ -9,6 +9,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.misoft.misoftapp.R
 import com.misoft.misoftapp.catalogo.ProductoAdminActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.misoft.misoftapp.home.HomeAdminActivity
+import com.misoft.misoftapp.estadisticas.ReportesAdminActivity
+import com.misoft.misoftapp.usuarios.UsuariosAdminActivity
 
 class VendedoresAdminActivity : AppCompatActivity() {
 
@@ -33,6 +37,78 @@ class VendedoresAdminActivity : AppCompatActivity() {
             findViewById<CardView>(
                 R.id.cardVendedor3
             )
+
+
+        //Menu
+
+        val bottomNavigation =
+            findViewById<BottomNavigationView>(
+                R.id.bottomNavigationAdmin
+            )
+
+        bottomNavigation.selectedItemId =
+            R.id.vendedores
+
+        bottomNavigation.setOnItemSelectedListener {
+
+            when (it.itemId) {
+
+                R.id.home -> {
+
+                    startActivity(
+                        Intent(
+                            this,
+                            HomeAdminActivity::class.java
+                        )
+                    )
+
+                    finish()
+
+                    true
+
+                }
+
+                R.id.usuarios -> {
+
+                    startActivity(
+                        Intent(
+                            this,
+                            UsuariosAdminActivity::class.java
+                        )
+                    )
+
+                    finish()
+
+                    true
+
+                }
+
+                R.id.vendedores -> {
+
+                    true
+
+                }
+
+                R.id.reportes -> {
+
+                    startActivity(
+                        Intent(
+                            this,
+                            ReportesAdminActivity::class.java
+                        )
+                    )
+
+                    finish()
+
+                    true
+
+                }
+
+                else -> false
+
+            }
+
+        }
 
         // Vendedor 1
 

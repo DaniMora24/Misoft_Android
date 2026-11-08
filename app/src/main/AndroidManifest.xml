@@ -15,7 +15,7 @@
 
         <!-- Splash de 2 Seg-->
         <activity
-            android:name=".usuarios.VendedoresAdminActivity"
+            android:name=".home.HomeAdminActivity"
             android:exported="true">
 
             <intent-filter>
@@ -116,22 +116,24 @@
 
 
         <!-- Admin  -->
-         <activity
+         <!--  <activity
             android:name=".home.HomeAdminActivity"
-            android:exported="false"/>
+            android:exported="false"/> -->
 
         <activity
             android:name=".usuarios.UsuariosAdminActivity"
             android:exported="false"/>
 
-       <!-- <activity
+        <activity
             android:name=".usuarios.VendedoresAdminActivity"
-            android:exported="false"/> -->
+            android:exported="false"/>
 
         <activity
             android:name=".catalogo.ProductoAdminActivity"
             android:exported="false"/>
 
+        <activity android:name=".estadisticas.ReportesAdminActivity"
+            android:exported="false" />
 
 
 

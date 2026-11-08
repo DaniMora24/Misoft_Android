@@ -1,12 +1,16 @@
 package com.misoft.misoftapp.usuarios
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.misoft.misoftapp.R
+import com.misoft.misoftapp.estadisticas.ReportesAdminActivity
+import com.misoft.misoftapp.home.HomeAdminActivity
 
 class UsuariosAdminActivity : AppCompatActivity() {
 
@@ -31,6 +35,77 @@ class UsuariosAdminActivity : AppCompatActivity() {
             findViewById<CardView>(
                 R.id.cardUsuario3
             )
+
+        // Navegación Admin
+
+        val bottomNavigation =
+            findViewById<BottomNavigationView>(
+                R.id.bottomNavigationAdmin
+            )
+
+        bottomNavigation.selectedItemId =
+            R.id.usuarios
+
+        bottomNavigation.setOnItemSelectedListener {
+
+            when (it.itemId) {
+
+                R.id.home -> {
+
+                    startActivity(
+                        Intent(
+                            this,
+                            HomeAdminActivity::class.java
+                        )
+                    )
+
+                    finish()
+
+                    true
+
+                }
+
+                R.id.usuarios -> {
+
+                    true
+
+                }
+
+                R.id.vendedores -> {
+
+                    startActivity(
+                        Intent(
+                            this,
+                            VendedoresAdminActivity::class.java
+                        )
+                    )
+
+                    finish()
+
+                    true
+
+                }
+
+                R.id.reportes -> {
+
+                    startActivity(
+                        Intent(
+                            this,
+                            ReportesAdminActivity::class.java
+                        )
+                    )
+
+                    finish()
+
+                    true
+
+                }
+
+                else -> false
+
+            }
+
+        }
 
         cardUsuario1.setOnClickListener {
 
