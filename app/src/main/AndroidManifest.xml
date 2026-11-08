@@ -15,7 +15,7 @@
 
         <!-- Splash de 2 Seg-->
         <activity
-            android:name=".home.HomeVendedorActivity"
+            android:name=".usuarios.VendedoresAdminActivity"
             android:exported="true">
 
             <intent-filter>
@@ -94,9 +94,9 @@
         
         <!-- Vendedor -->
 
-      <!--  <activity
+       <activity
             android:name=".home.HomeVendedorActivity"
-            android:exported="false" /> -->
+            android:exported="false" />
 
 
         <activity
@@ -114,7 +114,27 @@
         <activity android:name=".perfil_vendedor.PerfilVendedorActivity"
             android:exported="false" />
 
-       
+
+        <!-- Admin  -->
+         <activity
+            android:name=".home.HomeAdminActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".usuarios.UsuariosAdminActivity"
+            android:exported="false"/>
+
+       <!-- <activity
+            android:name=".usuarios.VendedoresAdminActivity"
+            android:exported="false"/> -->
+
+        <activity
+            android:name=".catalogo.ProductoAdminActivity"
+            android:exported="false"/>
+
+
+
+
 
 
 
