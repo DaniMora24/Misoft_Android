@@ -15,7 +15,7 @@
 
         <!-- Splash de 2 Seg-->
         <activity
-            android:name=".home.HomeAdminActivity"
+            android:name=".home.HomeBuyerActivity"
             android:exported="true">
 
             <intent-filter>
@@ -40,9 +40,9 @@
             android:exported="false"/>
 
         <!-- Home-->
-        <activity
+      <!--  <activity
             android:name=".home.HomeBuyerActivity"
-            android:exported="false" />
+            android:exported="false" /> -->
 
 
         <!-- Catalogo-->
@@ -116,9 +116,9 @@
 
 
         <!-- Admin  -->
-         <!--  <activity
+          <activity
             android:name=".home.HomeAdminActivity"
-            android:exported="false"/> -->
+            android:exported="false"/>
 
         <activity
             android:name=".usuarios.UsuariosAdminActivity"

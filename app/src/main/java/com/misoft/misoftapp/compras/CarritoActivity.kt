@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.misoft.misoftapp.catalogo.CatalogoActivity
 import com.misoft.misoftapp.home.HomeBuyerActivity
-import com.misoft.misoftapp.perfil_cliente.PersonalInfoActivity
 import com.misoft.misoftapp.R
 import com.misoft.misoftapp.perfil_cliente.PerfilClienteActivity
 
@@ -13,7 +12,7 @@ class CarritoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_carrito)
+        setContentView(R.layout.cliente_activity_carrito)
 
         val bottomNavigation =
             findViewById<BottomNavigationView>(
