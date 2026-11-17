@@ -183,7 +183,8 @@
                 android:text="Activar"
                 android:textColor="#FFFFFF"
                 app:backgroundTint="#4CAF50"
-                app:cornerRadius="28dp"/>
+                app:cornerRadius="28dp"
+                android:visibility="gone"/>
 
             <Space
                 android:layout_width="12dp"
@@ -194,10 +195,11 @@
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_weight="1"
-                android:text="Bloquear"
+                android:text="Deshabilitar"
                 android:textColor="#FFFFFF"
                 app:backgroundTint="#E53935"
-                app:cornerRadius="28dp"/>
+                app:cornerRadius="28dp"
+                android:visibility="gone"/>
 
         </LinearLayout>
 

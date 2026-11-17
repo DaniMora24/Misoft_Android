@@ -10,6 +10,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +34,8 @@
                     android:id="@+id/imgBack"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/flecha_pequena_izquierda"/>
+                    android:src="@drawable/flecha_pequena_izquierda"
+                    android:contentDescription="Regresar"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -51,119 +53,66 @@
 
             </LinearLayout>
 
-            <!-- DIRECCIÓN CASA -->
+            <!-- MENSAJE DE CARGA -->
 
-            <androidx.cardview.widget.CardView
+            <ProgressBar
+                android:id="@+id/progressDirecciones"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="32dp"
+                android:visibility="gone"
+                android:indeterminateTint="#9B7AE0"/>
+
+            <!-- CONTENEDOR DE DIRECCIONES REALES -->
+
+            <LinearLayout
+                android:id="@+id/contenedorDirecciones"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                android:orientation="vertical"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+            <!-- MENSAJE SIN DIRECCIONES -->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="🏠 Casa"
-                            android:textColor="#6A4C93"
-                            android:textStyle="bold"/>
-
-                        <ImageView
-                            android:id="@+id/imgEditarCasa"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginEnd="12dp"
-                            android:src="@drawable/lapiz"/>
-
-                        <ImageView
-                            android:id="@+id/imgEliminarCasa"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/basura_roja"/>
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Cra 123 #45-67"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Bogotá D.C."/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- DIRECCIÓN TRABAJO -->
-
-            <androidx.cardview.widget.CardView
+            <LinearLayout
+                android:id="@+id/layoutSinDirecciones"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:visibility="gone">
 
-                <LinearLayout
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📍"
+                    android:textSize="46sp"/>
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="Aún no tienes direcciones"
+                    android:textColor="#6A4C93"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Agrega una dirección para recibir tus pedidos."
+                    android:textColor="#80758A"
+                    android:textSize="14sp"/>
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="💼 Trabajo"
-                            android:textColor="#6A4C93"
-                            android:textStyle="bold"/>
+            </LinearLayout>
 
-                        <ImageView
-                            android:id="@+id/imgEditarTrabajo"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginEnd="12dp"
-                            android:src="@drawable/lapiz"/>
-
-                        <ImageView
-                            android:id="@+id/imgEliminarTrabajo"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/basura_roja"/>
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Av. El Dorado #20-15"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Bogotá D.C."/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- BOTÓN AGREGAR -->
+            <!-- BOTÓN AGREGAR DIRECCIÓN -->
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAgregarDireccion"

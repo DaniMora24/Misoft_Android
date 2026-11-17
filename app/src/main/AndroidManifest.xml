@@ -2,6 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- INTERNET -->
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+
+    <!-- UBICACIÓN PARA GOOGLE MAPS -->
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,22 +22,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MisoftApp"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
-        <!-- Splash de 2 Seg-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
+        <!-- SPLASH -->
         <activity
             android:name=".auth.SplashActivity"
             android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!-- Auth-->
-
+        <!-- AUTENTICACIÓN -->
         <activity
             android:name=".auth.LoginActivity"
             android:exported="false" />
@@ -37,52 +51,47 @@
 
         <activity
             android:name=".auth.ForgetPassword"
-            android:exported="false"/>
+            android:exported="false" />
 
-        <!-- Home-->
-       <activity
+        <!-- HOME -->
+        <activity
             android:name=".home.HomeBuyerActivity"
             android:exported="false" />
 
-
-        <!-- Catalogo-->
+        <!-- CATÁLOGO -->
         <activity
             android:name=".catalogo.CatalogoActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
             android:name=".catalogo.FavoritosActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
             android:name=".catalogo.DetalleProductoActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
-
-        <!--Carrito-->
-
+        <!-- CARRITO Y COMPRAS -->
         <activity
             android:name=".compras.CarritoActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
             android:name=".compras.DetalleCompraActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
             android:name=".compras.ComprasActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
-
-        <!-- Perfil-->
-
+        <!-- PERFIL DEL COMPRADOR -->
         <activity
             android:name=".perfil_cliente.PerfilClienteActivity"
             android:exported="false" />
 
         <activity
             android:name=".perfil_cliente.PersonalInfoActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
             android:name=".perfil_cliente.MetodoPagoActivity"
@@ -91,13 +100,16 @@
         <activity
             android:name=".perfil_cliente.DireccionActivity"
             android:exported="false" />
-        
-        <!-- Vendedor -->
 
-       <activity
-            android:name=".home.HomeVendedorActivity"
+        <!-- UBICACIÓN DE ENTREGA -->
+        <activity
+            android:name=".perfil_cliente.UbicacionActivity"
             android:exported="false" />
 
+        <!-- VENDEDOR -->
+        <activity
+            android:name=".home.HomeVendedorActivity"
+            android:exported="false" />
 
         <activity
             android:name=".estadisticas.EstadisticasVendedorActivity"
@@ -106,39 +118,35 @@
         <activity
             android:name=".catalogo.ProductosVendedorActivity"
             android:exported="false" />
-        
+
         <activity
             android:name=".pedidos.GestionPedidosActivity"
             android:exported="false" />
 
-        <activity android:name=".perfil_vendedor.PerfilVendedorActivity"
+        <activity
+            android:name=".perfil_vendedor.PerfilVendedorActivity"
             android:exported="false" />
 
-
-        <!-- Admin  -->
-          <activity
+        <!-- ADMINISTRADOR -->
+        <activity
             android:name=".home.HomeAdminActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
             android:name=".usuarios.UsuariosAdminActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
             android:name=".usuarios.VendedoresAdminActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
             android:name=".catalogo.ProductoAdminActivity"
-            android:exported="false"/>
-
-        <activity android:name=".estadisticas.ReportesAdminActivity"
             android:exported="false" />
 
-
-
-
-
+        <activity
+            android:name=".estadisticas.ReportesAdminActivity"
+            android:exported="false" />
 
     </application>
 

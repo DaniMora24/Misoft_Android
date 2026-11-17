@@ -300,19 +300,20 @@
             <!-- CERRAR SESION -->
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCerrarSesion"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginTop="24dp"
+                android:backgroundTint="#9B7AE0"
                 android:text="Cerrar sesión"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
-                android:backgroundTint="#9B7AE0"
                 app:cornerRadius="28dp"
                 app:icon="@drawable/cierre_usuario"
                 app:iconGravity="textStart"
                 app:iconPadding="12dp"
-                app:iconTint="#FFFFFF"
-                app:iconSize="24dp" />
+                app:iconSize="24dp"
+                app:iconTint="#FFFFFF" />
 
             <Space
                 android:layout_width="match_parent"

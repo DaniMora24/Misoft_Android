@@ -1,11 +1,15 @@
+
 package com.misoft.misoftapp.perfil_cliente
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AlertDialog
 import androidx.cardview.widget.CardView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.button.MaterialButton
 import com.misoft.misoftapp.R
+import com.misoft.misoftapp.auth.LoginActivity
 import com.misoft.misoftapp.catalogo.CatalogoActivity
 import com.misoft.misoftapp.catalogo.FavoritosActivity
 import com.misoft.misoftapp.compras.CarritoActivity
@@ -18,155 +22,117 @@ class PerfilClienteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.cliente_activity_perfil)
 
-        // Variable de Menu
-
         val bottomNavigation =
-            findViewById<BottomNavigationView>(
-                R.id.bottomNavigation
-            )
-
-        // Opciones de  Perfil
+            findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
         val cardPersonalInfo =
-            findViewById<CardView>(
-                R.id.cardPersonalInfo
-            )
+            findViewById<CardView>(R.id.cardPersonalInfo)
 
         val cardDirecciones =
-            findViewById<CardView>(
-                R.id.cardDirecciones
-            )
+            findViewById<CardView>(R.id.cardDirecciones)
 
         val cardMetodopago =
-            findViewById<CardView>(
-                R.id.cardMetodopago
-            )
+            findViewById<CardView>(R.id.cardMetodopago)
 
         val cardMiscompras =
-            findViewById<CardView>(
-                R.id.cardMiscompras
-            )
+            findViewById<CardView>(R.id.cardMiscompras)
 
         val cardMisfavoritos =
-            findViewById<CardView>(
-                R.id.cardMisfavoritos
-            )
+            findViewById<CardView>(R.id.cardMisfavoritos)
 
-        // --------------------------------------
-        // Navegación Perfil
+        val btnCerrarSesion =
+            findViewById<MaterialButton>(R.id.btnCerrarSesion)
+
+        // Navegación de las opciones del perfil
 
         cardPersonalInfo.setOnClickListener {
-
             startActivity(
-                Intent(
-                    this,
-                    PersonalInfoActivity::class.java
-                )
+                Intent(this, PersonalInfoActivity::class.java)
             )
-
         }
 
         cardDirecciones.setOnClickListener {
-
             startActivity(
-                Intent(
-                    this,
-                    DireccionActivity::class.java
-                )
+                Intent(this, DireccionActivity::class.java)
             )
-
         }
 
         cardMetodopago.setOnClickListener {
-
             startActivity(
-                Intent(
-                    this,
-                    MetodoPagoActivity::class.java
-                )
+                Intent(this, MetodoPagoActivity::class.java)
             )
-
         }
 
         cardMiscompras.setOnClickListener {
-
             startActivity(
-                Intent(
-                    this,
-                    ComprasActivity::class.java
-                )
+                Intent(this, ComprasActivity::class.java)
             )
-
         }
 
         cardMisfavoritos.setOnClickListener {
-
             startActivity(
-                Intent(
-                    this,
-                    FavoritosActivity::class.java
-                )
+                Intent(this, FavoritosActivity::class.java)
             )
-
         }
 
-        // ------------------------------------
-        // Navegacion Menu
+        // Cerrar sesión
+        btnCerrarSesion.setOnClickListener {
+            confirmarCierreSesion()
+        }
 
+        // Navegación inferior
         bottomNavigation.selectedItemId = R.id.perfil
 
         bottomNavigation.setOnItemSelectedListener {
-
             when (it.itemId) {
 
                 R.id.home -> {
-
                     startActivity(
-                        Intent(
-                            this,
-                            HomeBuyerActivity::class.java
-                        )
+                        Intent(this, HomeBuyerActivity::class.java)
                     )
-
                     finish()
-
                     true
                 }
 
                 R.id.categoria -> {
-
                     startActivity(
-                        Intent(
-                            this,
-                            CatalogoActivity::class.java
-                        )
+                        Intent(this, CatalogoActivity::class.java)
                     )
-
                     finish()
-
                     true
                 }
 
                 R.id.carrito -> {
-
                     startActivity(
-                        Intent(
-                            this,
-                            CarritoActivity::class.java
-                        )
+                        Intent(this, CarritoActivity::class.java)
                     )
-
                     finish()
-
                     true
                 }
 
-                R.id.perfil -> {
-                    true
-                }
+                R.id.perfil -> true
 
                 else -> false
             }
         }
+    }
+
+    private fun confirmarCierreSesion() {
+
+        AlertDialog.Builder(this)
+            .setTitle("Cerrar sesión")
+            .setMessage("¿Estás seguro de que deseas cerrar tu sesión?")
+            .setPositiveButton("Sí, cerrar sesión") { _, _ ->
+
+                val intent = Intent(this, LoginActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK
+                }
+
+                startActivity(intent)
+                finish()
+            }
+            .setNegativeButton("Cancelar", null)
+            .show()
     }
 }

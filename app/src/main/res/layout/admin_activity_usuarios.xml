@@ -63,137 +63,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+
         <LinearLayout
+            android:id="@+id/contenedorUsuarios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingHorizontal="16dp"
+            android:paddingTop="8dp"
             android:paddingBottom="16dp">
 
-            <!-- Usuario 1 -->
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardUsuario1"
+            <TextView
+                android:id="@+id/txtEstadoLista"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="14dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingHorizontal="16dp">
-
-                    <TextView
-                        android:id="@+id/txtNombreUsuario1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="👤 Cristian Mora"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/txtNombreUsuario1"
-                        android:text="Cliente • Activo"
-                        android:textColor="#777777"
-                        android:textSize="12sp" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/angulo_derecho" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- Usuario 2 -->
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardUsuario2"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="14dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingHorizontal="16dp">
-
-                    <TextView
-                        android:id="@+id/txtNombreUsuario2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="👤 Ana López"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/txtNombreUsuario2"
-                        android:text="Cliente • Activo"
-                        android:textColor="#777777"
-                        android:textSize="12sp" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/angulo_derecho" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- Usuario 3 -->
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardUsuario3"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="14dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingHorizontal="16dp">
-
-                    <TextView
-                        android:id="@+id/txtNombreUsuario3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="👤 Juan Pérez"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/txtNombreUsuario3"
-                        android:text="Cliente • Bloqueado"
-                        android:textColor="#C62828"
-                        android:textSize="12sp" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/angulo_derecho" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
+                android:layout_height="wrap_content"
+                android:padding="24dp"
+                android:gravity="center"
+                android:text="Cargando usuarios..."
+                android:textColor="#8A7AA6"
+                android:textSize="14sp"/>
 
         </LinearLayout>
+
 
     </ScrollView>
 

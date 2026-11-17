@@ -7,9 +7,12 @@
     android:layout_height="match_parent"
     android:background="#FFF7FA">
 
+    <!-- CONTENIDO PRINCIPAL -->
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollCompras"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,18 +25,22 @@
             android:padding="16dp">
 
             <!-- ENCABEZADO -->
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
+                <!-- VOLVER -->
                 <ImageView
                     android:id="@+id/imgBack"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/flecha_pequena_izquierda"/>
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:padding="4dp"
+                    android:src="@drawable/flecha_pequena_izquierda"
+                    android:contentDescription="Volver"
+                    android:clickable="true"
+                    android:focusable="true"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -45,366 +52,83 @@
                     android:textSize="22sp"
                     android:textStyle="bold"/>
 
+                <Space
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"/>
+
             </LinearLayout>
 
-            <!-- FILTROS -->
-
+            <!-- FILTROS DE ORDENES -->
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:scrollbars="none">
 
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupEstados"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:scrollbars="none">
+                    app:singleSelection="true"
+                    app:selectionRequired="true">
 
-                    <com.google.android.material.chip.ChipGroup
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipTodas"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:singleSelection="true">
+                        android:text="Todas"
+                        android:checked="true"/>
 
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Todas"
-                            android:checked="true" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipPendientes"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pendientes"/>
 
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Pendientes" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipEnviadas"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="En camino"/>
 
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Enviadas" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipEntregadas"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Entregadas"/>
 
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Entregadas" />
-
-                    </com.google.android.material.chip.ChipGroup>
-
-                </HorizontalScrollView>
+                </com.google.android.material.chip.ChipGroup>
 
             </HorizontalScrollView>
 
-            <!-- PEDIDO 1 -->
+            <!-- MENSAJE DE CARGA O LISTA VACÍA -->
+            <TextView
+                android:id="@+id/txtSinCompras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="Todavía no tienes pedidos registrados."
+                android:textColor="#888888"
+                android:textSize="15sp"
+                android:visibility="gone"/>
 
-            <androidx.cardview.widget.CardView
+            <!-- CONTENEDOR DINÁMICO DE PEDIDOS -->
+            <LinearLayout
+                android:id="@+id/layoutOrdenes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                app:cardCornerRadius="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@drawable/naruto"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="12dp"
-                        android:orientation="vertical">
+                android:orientation="vertical">
 
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Orden de compra:  #00124"
-                            android:textStyle="bold"
-                            android:textColor="#6A4C93"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Fecha de Compra: 15 abril 2026"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Precio: $50.000"
-                            android:textStyle="bold"/>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Estado: "
-                                android:textColor="#6A4C93"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Entregado"
-                                android:textColor="#4CAF50"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <ImageView
-                        android:id="@+id/imgDetallePedido"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/flecha_derecha"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- PEDIDO 2 -->
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardCornerRadius="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@drawable/gerberas"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="12dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Orden de compra: #00123"
-                            android:textStyle="bold"
-                            android:textColor="#6A4C93"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Fecha de Compra: 10 abril 2026"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Precio: $35.000"
-                            android:textStyle="bold"/>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Estado: "
-                                android:textColor="#6A4C93"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Enviado"
-                                android:textColor="#2196F3"
-                                android:textStyle="bold"/>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <ImageView
-                        android:id="@+id/imgDetallePedido2"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/flecha_derecha"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- PEDIDO 3 -->
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardCornerRadius="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@drawable/perrito"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="12dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Orden de compra: #00122"
-                            android:textStyle="bold"
-                            android:textColor="#6A4C93"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Fecha de Compra: 05 abril 2026"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Precio: $40.000"
-                            android:textStyle="bold"/>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Estado: "
-                                android:textColor="#6A4C93"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Pendiente"
-                                android:textColor="#FF9800"
-                                android:textStyle="bold"/>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <ImageView
-                        android:id="@+id/imgDetallePedido3"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/flecha_derecha"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- PEDIDO 4 -->
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardCornerRadius="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@drawable/goku"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="12dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Orden de compra: #00121"
-                            android:textStyle="bold"
-                            android:textColor="#6A4C93"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Fecha de Compra: 01 abril 2026"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Precio: $60.000"
-                            android:textStyle="bold"/>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Estado: "
-                                android:textColor="#6A4C93"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Cancelado"
-                                android:textColor="#E53935"
-                                android:textStyle="bold"/>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <ImageView
-                        android:id="@+id/imgDetallePedido4"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/flecha_derecha"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"
@@ -414,18 +138,18 @@
 
     </androidx.core.widget.NestedScrollView>
 
+    <!-- NAVEGACIÓN INFERIOR -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
+        app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="labeled"
         app:itemIconTint="#9B7AE0"
         app:itemTextColor="#9B7AE0"
-        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     android:background="#FFF7FA">
 
-    <!-- Header -->
-
+    <!-- Encabezado -->
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="0dp"
@@ -20,14 +19,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:gravity="center"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="Mis productos"
             android:textColor="#5D3FD3"
             android:textSize="22sp"
@@ -44,6 +41,7 @@
 
     </LinearLayout>
 
+    <!-- Contenido de productos -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -53,273 +51,64 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
+            android:id="@+id/contenedorProductos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingHorizontal="16dp"
             android:paddingBottom="16dp">
 
-            <!-- Producto 1 -->
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardConejo"
+            <!-- Mensaje cuando no hay productos -->
+            <LinearLayout
+                android:id="@+id/layoutSinProductos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                android:layout_marginTop="90dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="24dp">
 
-                <LinearLayout
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/usuario"
+                    android:contentDescription="Sin productos"
+                    android:alpha="0.5"/>
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="12dp"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="Aún no tienes productos registrados"
+                    android:textColor="#5D3FD3"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
 
-                    <ImageView
-                        android:layout_width="90dp"
-                        android:layout_height="90dp"
-                        android:src="@drawable/naruto"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Presiona + Nuevo para agregar tu primer producto."
+                    android:textColor="#888888"
+                    android:textSize="14sp"/>
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="12dp"
-                        android:orientation="vertical">
+            </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Naruto"
-                            android:textStyle="bold"/>
+            <!-- Aquí se agregan los productos desde la API -->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="$45.000"
-                            android:textSize="16sp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Stock: 5"
-                            android:textColor="#666666"
-                            android:textSize="13sp"/>
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="#DDF5E1"
-                            android:paddingHorizontal="10dp"
-                            android:paddingVertical="4dp"
-                            android:text="En stock"
-                            android:textColor="#2E7D32"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/imgEditarConejo"
-                            android:layout_width="22dp"
-                            android:layout_height="22dp"
-                            android:src="@drawable/lapiz"/>
-
-                        <Space
-                            android:layout_width="16dp"
-                            android:layout_height="wrap_content"/>
-
-                        <ImageView
-                            android:id="@+id/imgEliminarConejo"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/basura_roja"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- Producto 2 -->
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardGirasol"
+            <LinearLayout
+                android:id="@+id/listaProductos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardCornerRadius="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:layout_width="90dp"
-                        android:layout_height="90dp"
-                        android:src="@drawable/gerberas"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="12dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Gerbera Roda"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="$35.000"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Stock: 10"
-                            android:textColor="#666666"
-                            android:textSize="13sp"/>
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="#DDF5E1"
-                            android:paddingHorizontal="10dp"
-                            android:paddingVertical="4dp"
-                            android:text="En stock"
-                            android:textColor="#2E7D32"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/imgEditarGirasol"
-                            android:layout_width="22dp"
-                            android:layout_height="22dp"
-                            android:src="@drawable/lapiz"/>
-
-                        <Space
-                            android:layout_width="16dp"
-                            android:layout_height="wrap_content"/>
-
-                        <ImageView
-                            android:id="@+id/imgEliminarGirasol"
-                            android:layout_width="22dp"
-                            android:layout_height="22dp"
-                            android:src="@drawable/basura_roja"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- Producto 3 -->
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardTotoro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardCornerRadius="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:layout_width="90dp"
-                        android:layout_height="90dp"
-                        android:src="@drawable/goku"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="12dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Goku"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="$55.000"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Stock: 0"
-                            android:textColor="#666666"
-                            android:textSize="13sp"/>
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="#FFE4E4"
-                            android:paddingHorizontal="10dp"
-                            android:paddingVertical="4dp"
-                            android:text="Sin stock"
-                            android:textColor="#C62828"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity= "center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/imgEditarTotoro"
-                            android:layout_width="22dp"
-                            android:layout_height="22dp"
-                            android:src="@drawable/lapiz" />
-
-                        <Space
-                            android:layout_width="16dp"
-                            android:layout_height="wrap_content"/>
-
-                        <ImageView
-                            android:id="@+id/imgEliminarTotoro"
-                            android:layout_width="22dp"
-                            android:layout_height="22dp"
-                            android:src="@drawable/basura_roja"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
+                android:orientation="vertical"/>
 
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 
+    <!-- Navegación inferior -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationSeller"
         android:layout_width="0dp"

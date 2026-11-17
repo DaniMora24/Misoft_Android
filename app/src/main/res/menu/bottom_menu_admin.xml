@@ -14,7 +14,7 @@
     <item
         android:id="@+id/vendedores"
         android:icon="@drawable/tienda"
-        android:title="Tiendas" />
+        android:title="Vendedores" />
 
     <item
         android:id="@+id/reportes"

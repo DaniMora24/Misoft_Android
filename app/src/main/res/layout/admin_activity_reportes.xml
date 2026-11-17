@@ -7,40 +7,59 @@
     android:layout_height="match_parent"
     android:background="#FFF7FA">
 
-    <!-- Header -->
+    <!-- ENCABEZADO -->
 
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="18dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
-            android:id="@+id/imgBack"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/flecha_pequena_izquierda"/>
 
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="📊 Reportes y Estadísticas"
-            android:textColor="#6A4C93"
-            android:textSize="22sp"
-            android:textStyle="bold"/>
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📊 Reportes"
+                android:textColor="#6A4C93"
+                android:textSize="23sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="Análisis de ventas de MisoftApp"
+                android:textColor="#777777"
+                android:textSize="13sp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
+    <!-- CONTENIDO DESPLAZABLE  -->
+
+
     <ScrollView
+        android:id="@+id/scrollReportes"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:fillViewport="true"
+        android:clipToPadding="false"
         app:layout_constraintTop_toBottomOf="@id/header"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationAdmin"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,88 +69,277 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="28dp">
 
-            <!-- Métricas -->
+            <!-- FILTRO DE FECHAS                   -->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardFiltros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="📅 Período de consulta"
+                        android:textColor="#6A4C93"
+                        android:textSize="17sp"
+                        android:textStyle="bold"/>
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupPeriodo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipSemana"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Semana"
+                            android:checkable="true"
+                            app:chipBackgroundColor="#F0E6FA"
+                            app:checkedIconVisible="false"/>
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipMes"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mes"
+                            android:checked="true"
+                            android:checkable="true"
+                            app:chipBackgroundColor="#F0E6FA"
+                            app:checkedIconVisible="false"/>
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipAnio"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Año"
+                            android:checkable="true"
+                            app:chipBackgroundColor="#F0E6FA"
+                            app:checkedIconVisible="false"/>
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipPersonalizado"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Personalizado"
+                            android:checkable="true"
+                            app:chipBackgroundColor="#F0E6FA"
+                            app:checkedIconVisible="false"/>
+
+                    </com.google.android.material.chip.ChipGroup>
+
+                    <!-- FECHAS PERSONALIZADAS -->
+                    <!-- Inicialmente ocultas -->
+
+                    <LinearLayout
+                        android:id="@+id/layoutFechasPersonalizadas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="6dp"
+                            android:hint="Desde">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edtFechaInicio"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:inputType="none"
+                                android:contentDescription="Seleccionar fecha de inicio"/>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="6dp"
+                            android:hint="Hasta">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edtFechaFin"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:inputType="none"
+                                android:contentDescription="Seleccionar fecha final"/>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAplicarFiltros"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="12dp"
+                        android:text="Aplicar filtros"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="#8E6AD8"
+                        app:cornerRadius="24dp"/>
+
+                    <TextView
+                        android:id="@+id/txtPeriodoSeleccionado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="Período: Mes actual"
+                        android:textColor="#888888"
+                        android:textSize="12sp"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- INDICADORES COMERCIALES   -->
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="12dp"
+                android:text="Indicadores comerciales"
+                android:textColor="#6A4C93"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
+
+            <!-- FILA 1 -->
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+                <!-- VENTAS COBRADAS -->
+
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardVentasCobradas"
                     android:layout_width="0dp"
-                    android:layout_height="110dp"
+                    android:layout_height="140dp"
                     android:layout_weight="1"
                     android:layout_marginEnd="6dp"
-                    app:cardCornerRadius="16dp">
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:padding="14dp">
 
                         <TextView
-                            android:text="👥"
-                            android:textSize="28sp"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:text="💰"
+                            android:textSize="25sp"/>
 
                         <TextView
-                            android:text="152"
-                            android:textSize="22sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Ventas cobradas"
+                            android:textColor="#777777"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:id="@+id/txtVentasCobradas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="$ —"
+                            android:textColor="#2E7D32"
+                            android:textSize="21sp"
                             android:textStyle="bold"
-                            android:textColor="#6A4C93"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:text="Usuarios"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:maxLines="1"
+                            android:autoSizeTextType="uniform"
+                            android:autoSizeMinTextSize="12sp"
+                            android:autoSizeMaxTextSize="21sp"/>
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
+                <!-- TOTAL PEDIDOS DEL PERÍODO -->
+
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardPedidosPeriodo"
                     android:layout_width="0dp"
-                    android:layout_height="110dp"
+                    android:layout_height="140dp"
                     android:layout_weight="1"
                     android:layout_marginStart="6dp"
-                    app:cardCornerRadius="16dp">
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:padding="14dp">
 
                         <TextView
-                            android:text="🏪"
-                            android:textSize="28sp"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:text="🛍️"
+                            android:textSize="25sp"/>
 
                         <TextView
-                            android:text="24"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Pedidos del período"
+                            android:textColor="#777777"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:id="@+id/txtPedidosPeriodo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="—"
                             android:textColor="#6A4C93"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:text="Tiendas"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:textSize="24sp"
+                            android:textStyle="bold"/>
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
+
+            <!-- FILA 2 -->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -139,73 +347,97 @@
                 android:layout_marginTop="12dp"
                 android:orientation="horizontal">
 
+                <!-- TICKET PROMEDIO -->
+
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardTicketPromedio"
                     android:layout_width="0dp"
-                    android:layout_height="110dp"
+                    android:layout_height="140dp"
                     android:layout_weight="1"
                     android:layout_marginEnd="6dp"
-                    app:cardCornerRadius="16dp">
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:padding="14dp">
 
                         <TextView
-                            android:text="📦"
-                            android:textSize="28sp"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:text="📈"
+                            android:textSize="25sp"/>
 
                         <TextView
-                            android:text="389"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Ticket promedio"
+                            android:textColor="#777777"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:id="@+id/txtTicketPromedio"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="$ —"
                             android:textColor="#6A4C93"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:text="Productos"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:textSize="21sp"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:autoSizeTextType="uniform"
+                            android:autoSizeMinTextSize="12sp"
+                            android:autoSizeMaxTextSize="21sp"/>
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
+                <!-- ENTREGAS -->
+
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardEntregasPeriodo"
                     android:layout_width="0dp"
-                    android:layout_height="110dp"
+                    android:layout_height="140dp"
                     android:layout_weight="1"
                     android:layout_marginStart="6dp"
-                    app:cardCornerRadius="16dp">
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:padding="14dp">
 
                         <TextView
-                            android:text="🛒"
-                            android:textSize="28sp"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:text="📦"
+                            android:textSize="25sp"/>
 
                         <TextView
-                            android:text="841"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Pedidos entregados"
+                            android:textColor="#777777"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:id="@+id/txtEntregasPeriodo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="—"
                             android:textColor="#6A4C93"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                        <TextView
-                            android:text="Pedidos"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:textSize="24sp"
+                            android:textStyle="bold"/>
 
                     </LinearLayout>
 
@@ -213,13 +445,16 @@
 
             </LinearLayout>
 
-            <!-- Ventas -->
+            <!-- GRÁFICO DE VENTAS   -->
+
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardGraficoVentas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:cardCornerRadius="18dp">
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -228,32 +463,56 @@
                     android:padding="18dp">
 
                     <TextView
-                        android:text="💰 Ventas del mes"
-                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="📊 Evolución de ventas"
                         android:textColor="#6A4C93"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
 
                     <TextView
-                        android:text="$8.500.000"
-                        android:textSize="28sp"
-                        android:textStyle="bold"
-                        android:textColor="#4CAF50"
-                        android:layout_marginTop="6dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Ventas cobradas según el período seleccionado"
+                        android:textColor="#888888"
+                        android:textSize="12sp"/>
+
+                    <!-- AQUÍ COLOCAREMOS EL GRÁFICO -->
+                    <!-- DINÁMICO DESDE KOTLIN       -->
+
+                    <FrameLayout
+                        android:id="@+id/contenedorGraficoVentas"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_marginTop="16dp"
+                        android:background="#FAF7FD">
+
+                        <TextView
+                            android:id="@+id/txtGraficoVacio"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="16dp"
+                            android:text="El gráfico de ventas aparecerá aquí"
+                            android:textColor="#9A8AA8"
+                            android:textSize="14sp"/>
+
+                    </FrameLayout>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Indicadores -->
+            <!-- PRODUCTOS MÁS VENDIDOS  -->
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardTopProductos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:cardCornerRadius="18dp">
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -262,42 +521,164 @@
                     android:padding="18dp">
 
                     <TextView
-                        android:text="✅ Usuarios activos: 143"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    
-
-                    <TextView
-                        android:text="✅ Vendedores activos: 21"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏆 Productos más vendidos"
+                        android:textColor="#6A4C93"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
 
                     <TextView
-                        android:text="⛔ Vendedores suspendidos: 3"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Amigurumis con mayor cantidad de unidades vendidas"
+                        android:textColor="#888888"
+                        android:textSize="12sp"/>
+
+                    <!-- LISTA DINÁMICA DE PRODUCTOS -->
+
+                    <LinearLayout
+                        android:id="@+id/contenedorTopProductos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtProductosVacios"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="18dp"
+                            android:text="Cargando productos más vendidos..."
+                            android:textColor="#999999"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
+            <!-- ANÁLISIS DE PEDIDOS    -->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardAnalisisPedidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="📋 Análisis de pedidos"
+                        android:textColor="#6A4C93"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Distribución de pedidos según su estado"
+                        android:textColor="#888888"
+                        android:textSize="12sp"/>
+
+                    <!-- PEDIDOS PENDIENTES -->
+
+                    <TextView
+                        android:id="@+id/txtReportePendientes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="🕒 Pendientes: —"
+                        android:textColor="#555555"
+                        android:textSize="14sp"/>
+
+                    <!-- PEDIDOS EN PREPARACIÓN -->
+
+                    <TextView
+                        android:id="@+id/txtReportePreparando"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="🧶 En preparación: —"
+                        android:textColor="#555555"
+                        android:textSize="14sp"/>
+
+                    <!-- PEDIDOS EN CAMINO -->
+
+                    <TextView
+                        android:id="@+id/txtReporteEnCamino"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="🚚 En camino: —"
+                        android:textColor="#555555"
+                        android:textSize="14sp"/>
+
+                    <!-- PEDIDOS ENTREGADOS -->
+
+                    <TextView
+                        android:id="@+id/txtReporteEntregados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="✅ Entregados: —"
+                        android:textColor="#555555"
+                        android:textSize="14sp"/>
+
+                    <!-- PEDIDOS CANCELADOS -->
+
+                    <TextView
+                        android:id="@+id/txtReporteCancelados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="❌ Cancelados: —"
+                        android:textColor="#555555"
+                        android:textSize="14sp"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- INFORMACIÓN DEL REPORTE -->
+            <TextView
+                android:id="@+id/txtNotaReportes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="Los indicadores se calcularán con información de MySQL."
+                android:textColor="#999999"
+                android:textSize="12sp"/>
 
         </LinearLayout>
 
     </ScrollView>
 
+    <!-- NAVEGACIÓN INFERIOR ADMIN   -->
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationAdmin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:itemIconTint="#9B7AE0"
         app:itemTextColor="#9B7AE0"
         app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:menu="@menu/bottom_menu_admin"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

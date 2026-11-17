@@ -4,7 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:background="#FFF7FA">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,7 +14,7 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- Indicador -->
+        <!-- INDICADOR SUPERIOR -->
 
         <View
             android:layout_width="50dp"
@@ -20,90 +22,165 @@
             android:layout_gravity="center"
             android:background="#D3D3D3"/>
 
-        <!-- Título -->
-
         <TextView
             android:id="@+id/txtTituloProductoAdmin"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Detalle Producto"
+            android:layout_marginTop="18dp"
+            android:text="Detalle del producto"
             android:textColor="#6A4C93"
             android:textSize="22sp"
             android:textStyle="bold"/>
 
-        <!-- Imagen -->
+        <!-- IMAGEN REAL DEL PRODUCTO -->
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:layout_marginTop="16dp"
-            app:cardCornerRadius="18dp">
+            app:cardCornerRadius="18dp"
+            app:cardElevation="2dp">
 
             <ImageView
                 android:id="@+id/imgProductoAdmin"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/naruto"/>
+                android:src="@drawable/logo_michigurumis_final"
+                android:contentDescription="Imagen del producto"/>
 
         </androidx.cardview.widget.CardView>
 
-        <!-- Información principal -->
+        <!-- NOMBRE -->
 
         <TextView
             android:id="@+id/txtNombreProducto"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Naruto Amigurumi"
+            android:text="Nombre del producto"
             android:textColor="#6A4C93"
-            android:textSize="24sp"
+            android:textSize="23sp"
             android:textStyle="bold"/>
+
+        <!-- PRECIO -->
 
         <TextView
             android:id="@+id/txtPrecioProducto"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="$55.000"
+            android:layout_marginTop="4dp"
+            android:text="$ —"
             android:textColor="#D46AA7"
             android:textSize="22sp"
             android:textStyle="bold"/>
 
-        <!-- Estado -->
+        <!-- ESTADO -->
 
         <TextView
             android:id="@+id/txtEstadoProducto"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="✅ Visible"
-            android:textColor="#4CAF50"
-            android:textStyle="bold"/>
+            android:text="Estado: —"
+            android:textColor="#777777"
+            android:textSize="14sp"/>
 
-        <!-- Descripción -->
+        <!-- DESCRIPCIÓN -->
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:text="Descripción"
             android:textColor="#6A4C93"
+            android:textSize="17sp"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/txtDescripcionProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Amigurumi tejido a mano inspirado en personajes anime."/>
+            android:layout_marginTop="8dp"
+            android:text="Sin descripción disponible."
+            android:textColor="#555555"
+            android:textSize="14sp"/>
 
-        <!-- Información -->
+        <!-- INFORMACIÓN DEL PRODUCTO -->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Información del producto"
+                    android:textColor="#6A4C93"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/txtStockProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="📦 Stock: —"
+                    android:textColor="#555555"/>
+
+                <TextView
+                    android:id="@+id/txtStockMinimoProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="⚠️ Stock mínimo: —"
+                    android:textColor="#555555"/>
+
+                <TextView
+                    android:id="@+id/txtTallaProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="📏 Talla: —"
+                    android:textColor="#555555"/>
+
+                <TextView
+                    android:id="@+id/txtVendedorProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="🏪 Vendedor: —"
+                    android:textColor="#555555"/>
+
+                <TextView
+                    android:id="@+id/txtCategoriaProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="🏷️ Categoría: —"
+                    android:textColor="#555555"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- VENTAS REGISTRADAS -->
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:cardCornerRadius="16dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -112,112 +189,49 @@
                 android:padding="18dp">
 
                 <TextView
-                    android:id="@+id/txtStockProducto"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="📦 Stock: 12"/>
-
-                <TextView
-                    android:id="@+id/txtVendedorProducto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="🏪 Vendedor: Cristian Crochet"/>
-
-                <TextView
-                    android:id="@+id/txtCategoriaProducto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="🏷 Categoría: Anime"/>
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <!-- Estadísticas -->
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Estadísticas"
-            android:textColor="#6A4C93"
-            android:textStyle="bold"/>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:cardCornerRadius="16dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="18dp">
-
-                <TextView
-                    android:id="@+id/txtVisualizaciones"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="👁 Visualizaciones: 143"/>
+                    android:text="Estadísticas de ventas"
+                    android:textColor="#6A4C93"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/txtVentasProducto"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="🛒 Ventas: 28"/>
-
-                <TextView
-                    android:id="@+id/txtCalificacionProducto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="⭐ Calificación: 4.9"/>
+                    android:layout_marginTop="12dp"
+                    android:text="🛒 Unidades vendidas: —"
+                    android:textColor="#555555"/>
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
-        <!-- Botones Admin -->
+        <!-- CONTROL DE VISIBILIDAD -->
 
-        <LinearLayout
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnOcultarProducto"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="24dp"
+            android:text="Ocultar producto"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#8E6AD8"
+            app:cornerRadius="27dp"/>
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:orientation="horizontal">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnOcultarProducto"
-                android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:layout_weight="1"
-                android:text="Ocultar"
-                android:textColor="#FFFFFF"
-                app:backgroundTint="#FF9800"
-                app:cornerRadius="28dp"/>
-
-            <Space
-                android:layout_width="12dp"
-                android:layout_height="wrap_content"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnEliminarProducto"
-                android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:layout_weight="1"
-                android:text="Eliminar"
-                android:textColor="#FFFFFF"
-                app:backgroundTint="#E53935"
-                app:cornerRadius="28dp"/>
-
-        </LinearLayout>
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="La visibilidad afecta al catálogo, no elimina el historial de ventas."
+            android:textColor="#999999"
+            android:textSize="12sp"/>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30dp"/>
+            android:layout_height="24dp"/>
 
     </LinearLayout>
 

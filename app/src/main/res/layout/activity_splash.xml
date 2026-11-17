@@ -1,27 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="#FCE4EC
-">
+    android:background="#FFF7FA">
 
+    <!-- CONTENIDO CENTRAL -->
 
-    <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:contentDescription="Logo Misoft"
-        android:src="@drawable/logo_michigurumis_final" />
+    <LinearLayout
+        android:id="@+id/contenidoSplash"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- CÍRCULO DECORATIVO -->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            app:cardCornerRadius="125dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#F6E8F5">
+
+            <!-- LOGO MISOFT -->
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="12dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_misoft"
+                android:contentDescription="Logo Misoft Software"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- NOMBRE -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="MISOFT"
+            android:textColor="#6A4C93"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.20"/>
+
+        <!-- SUBTÍTULO -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="SOFTWARE"
+            android:textColor="#9B7AE0"
+            android:textSize="13sp"
+            android:letterSpacing="0.35"/>
+
+        <!-- SEPARADOR -->
+
+        <View
+            android:layout_width="70dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="24dp"
+            android:background="#E6CBEA"/>
+
+        <!-- DESCRIPCIÓN -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Amigurumis tejidos con amor 🧶"
+            android:textColor="#846D94"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+    <!-- TEXTO INFERIOR -->
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Tienda Virtual de Amigurumis"
-        android:textColor="#D9B3FF"
-        android:textSize="16sp"/>
+        android:layout_marginBottom="34dp"
+        android:gravity="center"
+        android:text="CREATIVIDAD EN CADA PUNTADA"
+        android:textColor="#B29ABA"
+        android:textSize="10sp"
+        android:letterSpacing="0.18"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

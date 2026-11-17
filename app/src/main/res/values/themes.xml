@@ -1,9 +1,33 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MisoftApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- TEMA PRINCIPAL -->
+
+    <style name="Base.Theme.MisoftApp"
+        parent="Theme.Material3.DayNight.NoActionBar">
     </style>
 
-    <style name="Theme.MisoftApp" parent="Base.Theme.MisoftApp" />
+    <style name="Theme.MisoftApp"
+        parent="Base.Theme.MisoftApp" />
+
+    <!-- SPLASH NATIVO SIN LOGO DUPLICADO -->
+
+    <style name="Theme.MisoftApp.Starting"
+        parent="Theme.SplashScreen">
+
+        <item name="windowSplashScreenBackground">
+            @color/splash_background
+        </item>
+
+        <item name="windowSplashScreenAnimatedIcon">
+            @drawable/splash_empty
+        </item>
+
+        <item name="postSplashScreenTheme">
+            @style/Theme.MisoftApp
+        </item>
+
+    </style>
+
 </resources>

@@ -20,299 +20,259 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="16dp">
+            android:padding="16dp">
 
-            <!-- Titulo -->
+            <!-- TÍTULO -->
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="MI TIENDA"
+                android:layout_marginTop="8dp"
+                android:text="Mi perfil"
                 android:textColor="#6A4C93"
-                android:textSize="28sp"
-                android:textStyle="bold" />
+                android:textSize="25sp"
+                android:textStyle="bold"/>
 
-            <!-- Foto Perfil -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Administra tu cuenta de vendedor"
+                android:textColor="#888888"
+                android:textSize="14sp"/>
+
+            <!-- TARJETA DE PERFIL -->
 
             <androidx.cardview.widget.CardView
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                app:cardCornerRadius="70dp"
-                app:cardElevation="4dp">
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp">
 
-                <ImageView
-                    android:id="@+id/imgPerfilTienda"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="24dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/usuario" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:padding="24dp">
+
+                    <FrameLayout
+                        android:id="@+id/contenedorFotoPerfilVendedor"
+                        android:layout_width="104dp"
+                        android:layout_height="104dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:contentDescription="Cambiar foto de perfil">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/imgPerfilTienda"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
+                            android:layout_gravity="center"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/usuario"
+                            android:contentDescription="Foto del vendedor"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"/>
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_gravity="bottom|end"
+                            android:background="#F6EFFF"
+                            android:padding="4dp"
+                            android:src="@android:drawable/ic_menu_camera"
+                            android:contentDescription="Seleccionar fotografía"
+                            app:tint="#6A4C93"/>
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/txtNombreTienda"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:gravity="center"
+                        android:text="Cargando nombre..."
+                        android:textColor="#6A4C93"
+                        android:textSize="22sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/txtCorreoTienda"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="Cargando correo..."
+                        android:textColor="#777777"
+                        android:textSize="13sp"/>
+
+                    <TextView
+                        android:id="@+id/txtCambiarFotoVendedor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:padding="8dp"
+                        android:text="📷 Cambiar fotografía"
+                        android:textColor="#8E6AD8"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Nombre -->
+            <!-- OPCIONES DE PERFIL -->
 
             <TextView
-                android:id="@+id/txtNombreTienda"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:text="Cristian Crochet"
-                android:textColor="#6A4C93"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <!-- Correo -->
-
-            <TextView
-                android:id="@+id/txtCorreoTienda"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="ventas@michigurumis.com"
-                android:textColor="#777777"
-                android:textSize="14sp" />
-
-            <!-- Información de la tienda -->
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardInfoTienda"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                app:cardCornerRadius="16dp">
+                android:text="Mi cuenta"
+                android:textColor="#6A4C93"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="12dp">
-
-                    <TextView
-                        android:layout_width="32dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="🏪"
-                        android:textSize="20sp"/>
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:text="Información de la tienda"
-                        android:textColor="#6A4C93"
-                        android:textSize="16sp"/>
-
-                    <ImageView
-                        android:id="@+id/imgInfoTienda"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:src="@drawable/angulo_derecho"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- Contacto -->
+            <!-- INFORMACIÓN PERSONAL -->
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardContacto"
+                android:id="@+id/cardInfoCuentaVendedor"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                app:cardCornerRadius="16dp">
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingHorizontal="12dp">
+                    android:padding="18dp">
 
                     <TextView
-                        android:layout_width="32dp"
+                        android:layout_width="38dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="📱"
-                        android:textSize="20sp"/>
+                        android:text="👤"
+                        android:textSize="25sp"/>
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
                         android:layout_weight="1"
-                        android:text="Información de contacto"
-                        android:textColor="#6A4C93"
-                        android:textSize="16sp"/>
+                        android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imgContacto"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:src="@drawable/angulo_derecho"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Información de la cuenta"
+                            android:textColor="#6A4C93"
+                            android:textSize="15sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Nombre y correo registrados"
+                            android:textColor="#888888"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Métodos de entrega -->
+            <!-- ESTADÍSTICAS -->
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardEntrega"
+                android:id="@+id/cardEstadisticasPerfilVendedor"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                app:cardCornerRadius="16dp">
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingHorizontal="12dp">
+                    android:padding="18dp">
 
                     <TextView
-                        android:layout_width="32dp"
+                        android:layout_width="38dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="🚚"
-                        android:textSize="20sp"/>
+                        android:text="📊"
+                        android:textSize="25sp"/>
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
                         android:layout_weight="1"
-                        android:text="Métodos de entrega"
-                        android:textColor="#6A4C93"
-                        android:textSize="16sp"/>
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Mis estadísticas"
+                            android:textColor="#6A4C93"
+                            android:textSize="15sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Consulta las ventas de tu tienda"
+                            android:textColor="#888888"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/imgEntrega"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:src="@drawable/angulo_derecho"/>
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/angulo_derecho"
+                        android:contentDescription="Ver estadísticas"/>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Horario -->
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardHorario"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginTop="12dp"
-                app:cardCornerRadius="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="12dp">
-
-                    <TextView
-                        android:layout_width="32dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="🕒"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:text="Horario de atención"
-                        android:textColor="#6A4C93"
-                        android:textSize="16sp" />
-
-                    <ImageView
-                        android:id="@+id/imgHorario"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:src="@drawable/angulo_derecho" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- Reputación -->
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardReputacion"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="20dp"
-                app:cardCornerRadius="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="12dp">
-
-                    <TextView
-                        android:layout_width="32dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="⭐"
-                        android:textSize="20sp"/>
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:text="Reputación y ventas"
-                        android:textColor="#6A4C93"
-                        android:textSize="16sp"/>
-
-                    <ImageView
-                        android:id="@+id/imgReputacion"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:src="@drawable/angulo_derecho"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <!-- CERRAR SESION -->
+            <!-- CERRAR SESIÓN -->
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCerrarSesionVendedor"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="28dp"
                 android:text="Cerrar sesión"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF"
+                android:textSize="15sp"
                 android:textStyle="bold"
-                android:backgroundTint="#9B7AE0"
-                app:cornerRadius="28dp"
+                app:backgroundTint="#9B7AE0"
+                app:cornerRadius="18dp"
                 app:icon="@drawable/cierre_usuario"
                 app:iconGravity="textStart"
                 app:iconPadding="12dp"
                 app:iconTint="#FFFFFF"
-                app:iconSize="24dp" />
+                app:iconSize="22dp"/>
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="30dp"/>
+                android:layout_height="24dp"/>
 
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <!-- MENÚ INFERIOR -->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationSeller"
@@ -320,10 +280,10 @@
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_menu_vendedor"
         app:labelVisibilityMode="labeled"
+        app:itemIconTint="#9B7AE0"
+        app:itemTextColor="#9B7AE0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:itemIconTint="#9B7AE0"
-        app:itemTextColor="#9B7AE0"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

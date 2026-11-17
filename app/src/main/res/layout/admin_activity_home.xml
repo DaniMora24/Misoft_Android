@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#FFF7FA">
 
-    <!-- Header -->
+    <!-- HEADER DEL ADMINISTRADOR -->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardHeader"
@@ -20,47 +20,110 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
             android:padding="16dp">
 
-            <ImageView
-                android:id="@+id/imgAdmin"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/usuario"/>
+            <!-- FOTO DE PERFIL -->
+
+            <FrameLayout
+                android:id="@+id/contenedorFotoAdmin"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Cambiar foto de perfil">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imgAdmin"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/usuario"
+                    android:contentDescription="Foto de perfil del administrador"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"/>
+
+                <!-- INDICADOR DE EDICIÓN -->
+
+                <ImageView
+                    android:id="@+id/imgCambiarFoto"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="bottom|end"
+                    android:background="#FFFFFF"
+                    android:padding="2dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    app:tint="#6A4C93"
+                    android:contentDescription="Seleccionar nueva foto"/>
+
+            </FrameLayout>
+
+            <!-- BIENVENIDA -->
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/imgAdmin"
                 android:layout_marginStart="16dp"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txtSaludoAdmin"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Hola, Administrador"
                     android:textColor="#6A4C93"
-                    android:textSize="22sp"
-                    android:textStyle="bold"/>
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    android:maxLines="2"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txtSubtituloAdmin"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="¿Qué deseas gestionar hoy?"
-                    android:textColor="#666666"/>
+                    android:textColor="#666666"
+                    android:textSize="13sp"/>
 
             </LinearLayout>
 
-        </RelativeLayout>
+
+            <!-- BOTÓN CERRAR SESIÓN -->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCerrarSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_marginStart="6dp"
+                android:text="Cerrar Sesión"
+                android:textAllCaps="false"
+                android:textColor="#C44572"
+                android:textSize="12sp"
+                android:minWidth="56dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                app:backgroundTint="#F8EDF3"
+                app:cornerRadius="14dp"
+                app:strokeWidth="0dp"/>
+
+
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
+    <!-- CONTENIDO PRINCIPAL                      -->
+
     <ScrollView
+        android:id="@+id/scrollHomeAdmin"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:fillViewport="true"
+        android:clipToPadding="false"
         app:layout_constraintTop_toBottomOf="@id/cardHeader"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationAdmin"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,120 +134,147 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingHorizontal="16dp"
-            android:paddingBottom="16dp">
+            android:paddingBottom="24dp">
 
-            <!-- MÉTRICAS -->
+            <!-- MÉTRICAS PRINCIPALES               -->
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal"
-                android:weightSum="3"
-                android:layout_marginTop="16dp">
+                android:weightSum="3">
+
+                <!-- TOTAL USUARIOS -->
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardTotalUsuarios"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="112dp"
                     android:layout_weight="1"
-                    android:layout_marginEnd="6dp"
-                    app:cardCornerRadius="14dp">
+                    android:layout_marginEnd="5dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="6dp">
 
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="👥"
-                            android:textSize="28sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:textSize="26sp"/>
 
                         <TextView
-                            android:text="152"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
+                            android:id="@+id/txtTotalUsuarios"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="—"
                             android:textColor="#6A4C93"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:textSize="23sp"
+                            android:textStyle="bold"/>
 
                         <TextView
-                            android:text="Usuarios"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:text="Usuarios"
+                            android:textColor="#666666"
+                            android:textSize="12sp"/>
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
+                <!-- TOTAL PEDIDOS -->
+
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardTotalPedidos"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="112dp"
                     android:layout_weight="1"
                     android:layout_marginHorizontal="3dp"
-                    app:cardCornerRadius="14dp">
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="6dp">
 
                         <TextView
-                            android:text="🏪"
-                            android:textSize="28sp"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:text="🛒"
+                            android:textSize="26sp"/>
 
                         <TextView
-                            android:text="24"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
+                            android:id="@+id/txtTotalPedidos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="—"
                             android:textColor="#6A4C93"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:textSize="23sp"
+                            android:textStyle="bold"/>
 
                         <TextView
-                            android:text="Tiendas"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:text="Pedidos"
+                            android:textColor="#666666"
+                            android:textSize="12sp"/>
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
+                <!-- TOTAL PRODUCTOS -->
+
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardTotalProductos"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="112dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="6dp"
-                    app:cardCornerRadius="14dp">
+                    android:layout_marginStart="5dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="6dp">
 
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="📦"
-                            android:textSize="28sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:textSize="26sp"/>
 
                         <TextView
-                            android:text="389"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
+                            android:id="@+id/txtTotalProductos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="—"
                             android:textColor="#6A4C93"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:textSize="23sp"
+                            android:textStyle="bold"/>
 
                         <TextView
-                            android:text="Productos"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:text="Productos"
+                            android:textColor="#666666"
+                            android:textSize="12sp"/>
 
                     </LinearLayout>
 
@@ -192,13 +282,15 @@
 
             </LinearLayout>
 
-            <!-- VENTAS -->
+            <!-- VENTAS DEL MES                    -->
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardVentasMes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:cardCornerRadius="18dp">
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -207,33 +299,44 @@
                     android:padding="20dp">
 
                     <TextView
-                        android:text="💰 Ventas del Mes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="💰 Ventas del mes"
                         android:textColor="#6A4C93"
-                        android:textStyle="bold"
                         android:textSize="18sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textStyle="bold"/>
 
                     <TextView
-                        android:text="$8.500.000"
+                        android:id="@+id/txtVentasMes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="$ —"
+                        android:textColor="#2E7D32"
                         android:textSize="30sp"
-                        android:textStyle="bold"
-                        android:textColor="#4CAF50"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Pedidos creados este mes, entregados y con pago confirmado"
+                        android:textColor="#888888"
+                        android:textSize="12sp"/>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
-            <!-- RESUMEN -->
+            <!-- RESUMEN GENERAL                   -->
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardResumenGeneral"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:cardCornerRadius="18dp">
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -242,60 +345,92 @@
                     android:padding="20dp">
 
                     <TextView
-                        android:text="📋 Resumen General"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="📋 Resumen general"
                         android:textColor="#6A4C93"
-                        android:textStyle="bold"
                         android:textSize="18sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textStyle="bold"/>
+
+                    <!-- USUARIOS ACTIVOS -->
 
                     <TextView
-                        android:text="✅ Usuarios activos: 143"
-                        android:layout_marginTop="12dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:id="@+id/txtUsuariosActivos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="✅ Usuarios activos: —"
+                        android:textColor="#444444"
+                        android:textSize="14sp"/>
+
+                    <!-- USUARIOS INACTIVOS -->
 
                     <TextView
-                        android:text="⛔ Usuarios bloqueados: 9"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:id="@+id/txtUsuariosInactivos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="⛔ Usuarios inactivos: —"
+                        android:textColor="#444444"
+                        android:textSize="14sp"/>
+
+                    <!-- VENDEDORES ACTIVOS -->
 
                     <TextView
-                        android:text="✅ Vendedores activos: 21"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:id="@+id/txtVendedoresActivos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="✅ Vendedores activos: —"
+                        android:textColor="#444444"
+                        android:textSize="14sp"/>
+
+                    <!-- VENDEDORES INACTIVOS -->
 
                     <TextView
-                        android:text="⛔ Vendedores suspendidos: 3"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:id="@+id/txtVendedoresInactivos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="⛔ Vendedores inactivos: —"
+                        android:textColor="#444444"
+                        android:textSize="14sp"/>
+
+                    <!-- PRODUCTOS VISIBLES -->
 
                     <TextView
-                        android:text="📦 Productos visibles: 372"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:id="@+id/txtProductosVisibles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="📦 Productos visibles: —"
+                        android:textColor="#444444"
+                        android:textSize="14sp"/>
+
+                    <!-- PRODUCTOS OCULTOS -->
 
                     <TextView
-                        android:text="🙈 Productos ocultos: 17"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:id="@+id/txtProductosOcultos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="🙈 Productos ocultos: —"
+                        android:textColor="#444444"
+                        android:textSize="14sp"/>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
-            <!-- ACTIVIDAD -->
+            <!-- ESTADO DE LOS PEDIDOS             -->
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardResumenPedidos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:cardCornerRadius="18dp">
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -304,57 +439,131 @@
                     android:padding="20dp">
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🛍️ Estado de los pedidos"
+                        android:textColor="#6A4C93"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/txtPedidosPendientes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="🕒 Pendientes: —"
+                        android:textColor="#444444"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/txtPedidosEnCamino"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="🚚 En camino: —"
+                        android:textColor="#444444"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/txtPedidosEntregados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="✅ Entregados: —"
+                        android:textColor="#444444"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/txtPedidosCancelados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="❌ Cancelados: —"
+                        android:textColor="#444444"
+                        android:textSize="14sp"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- ACTIVIDAD RECIENTE                -->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardActividadReciente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="🕒 Actividad reciente"
                         android:textColor="#6A4C93"
-                        android:textStyle="bold"
                         android:textSize="18sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textStyle="bold"/>
 
                     <TextView
-                        android:text="• Nuevo vendedor registrado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Últimos pedidos registrados"
+                        android:textColor="#888888"
+                        android:textSize="12sp"/>
+
+                    <!-- CONTENEDOR DINÁMICO -->
+
+                    <LinearLayout
+                        android:id="@+id/contenedorActividadReciente"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:text="• Producto ocultado por administrador"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/txtActividadVacia"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="12dp"
+                            android:text="Cargando actividad reciente..."
+                            android:textColor="#777777"
+                            android:textSize="14sp"/>
 
-                    <TextView
-                        android:text="• Usuario bloqueado"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:text="• Reporte generado"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
+            <!-- ESPACIO INFERIOR -->
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"/>
 
         </LinearLayout>
 
     </ScrollView>
 
-    <!-- Bottom Navigation -->
+    <!-- MENÚ INFERIOR DEL ADMINISTRADOR         -->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationAdmin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:itemIconTint="#9B7AE0"
         app:itemTextColor="#9B7AE0"
         app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:menu="@menu/bottom_menu_admin"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

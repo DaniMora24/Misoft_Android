@@ -13,7 +13,6 @@
         android:padding="20dp">
 
         <!-- Barra superior -->
-
         <View
             android:layout_width="50dp"
             android:layout_height="5dp"
@@ -21,7 +20,6 @@
             android:background="#D3D3D3"/>
 
         <!-- Título -->
-
         <TextView
             android:id="@+id/txtTituloProducto"
             android:layout_width="wrap_content"
@@ -32,48 +30,74 @@
             android:textSize="22sp"
             android:textStyle="bold"/>
 
-        <!-- Agregar foto -->
 
+        <!-- Agregar Fotografia -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardAgregarFoto"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="220dp"
             android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
             app:cardCornerRadius="16dp"
-            app:cardElevation="1dp">
+            app:cardElevation="2dp">
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:background="#FFFFFF">
 
+
+                <LinearLayout
+                    android:id="@+id/layoutIndicacionFoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/usuario"
+                        android:contentDescription="Agregar fotografía"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Agregar foto"
+                        android:textColor="#6A4C93"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Toma una foto o selecciónala"
+                        android:textColor="#888888"
+                        android:textSize="12sp"/>
+
+                </LinearLayout>
+
+                <!-- Vista Previa de la foto -->
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/usuario"/>
+                    android:id="@+id/imgVistaPreviaProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:contentDescription="Vista previa del producto"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
+                    android:visibility="gone"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Agregar foto"
-                    android:textColor="#6A4C93"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Toma una foto o selecciónala"
-                    android:textColor="#888888"
-                    android:textSize="12sp"/>
-
-            </LinearLayout>
+            </FrameLayout>
 
         </androidx.cardview.widget.CardView>
 
-        <!-- Nombre -->
 
+        <!-- Nombre -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,7 +114,7 @@
                 android:id="@+id/edtNombreProducto"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="Nombre" />
+                android:hint="Nombre"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,12 +138,11 @@
                 android:layout_height="80dp"
                 android:gravity="top"
                 android:hint="Descripción"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Precio y Stock -->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -159,7 +182,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Precio"
-                    android:inputType="number" />
+                    android:inputType="number"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -177,79 +200,50 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Stock"
-                    android:inputType="number" />
+                    android:inputType="number"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
-        <!-- Altura y Material -->
+        <!-- Talla -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Tamaño del producto"
+            android:textColor="#6A4C93"
+            android:textStyle="bold"/>
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="5dp"
+            app:endIconMode="dropdown_menu">
 
-            <TextView
-                android:layout_width="0dp"
+            <AutoCompleteTextView
+                android:id="@+id/actTalla"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Altura (cm)"
-                android:textColor="#6A4C93"
-                android:textStyle="bold"/>
+                android:hint="Selecciona una talla"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="true"
+                android:textSize="16sp"/>
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Material"
-                android:textColor="#6A4C93"
-                android:textStyle="bold"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <!-- Información visual de centímetros -->
+        <TextView
+            android:id="@+id/txtEquivalenciaTalla"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="horizontal">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtAltura"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:hint="Altura (cm)"
-                    android:inputType="number" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Space
-                android:layout_width="12dp"
-                android:layout_height="wrap_content"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtMaterial"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:hint="Material"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
+            android:layout_marginTop="6dp"
+            android:text="S: 10–15 cm | M: 16–20 cm | L: 21–30 cm | XL: 31–40 cm"
+            android:textColor="#888888"
+            android:textSize="12sp"/>
 
         <!-- Categoría -->
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -268,12 +262,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Selecciona una categoría"
-                android:textSize="20sp" />
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="true"
+                android:textSize="16sp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Guardar -->
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnGuardarProducto"
             android:layout_width="match_parent"
