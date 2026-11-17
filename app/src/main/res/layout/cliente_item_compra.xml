@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:id="@+id/layoutItemCompra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <!-- ICONO DEL PEDIDO -->
+        <ImageView
+            android:id="@+id/imgCompra"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:padding="10dp"
+            android:src="@drawable/carrito_de_compras"
+            android:scaleType="fitCenter"
+            android:contentDescription="Orden de compra"/>
+
+        <!-- INFORMACIÓN -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <!-- NÚMERO DE ORDEN -->
+            <TextView
+                android:id="@+id/txtNumeroOrden"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Orden de compra: #00001"
+                android:textColor="#6A4C93"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+
+            <!-- FECHA -->
+            <TextView
+                android:id="@+id/txtFechaOrden"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Fecha: 14 noviembre 2026"
+                android:textColor="#666666"
+                android:textSize="13sp"/>
+
+            <!-- TOTAL -->
+            <TextView
+                android:id="@+id/txtPrecioOrden"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Total de productos: $0"
+                android:textColor="#D46AA7"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+
+            <!-- ESTADO -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estado: "
+                    android:textColor="#6A4C93"
+                    android:textStyle="bold"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/txtEstadoOrden"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pendiente"
+                    android:textColor="#FF9800"
+                    android:textStyle="bold"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+            <!-- CANTIDAD DE UNIDADES -->
+            <TextView
+                android:id="@+id/txtCantidadProductosOrden"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="1 unidad"
+                android:textColor="#888888"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+        <!-- VER DETALLES -->
+        <ImageView
+            android:id="@+id/imgDetallePedido"
+            android:layout_width="28dp"
+            android:layout_height="36dp"
+            android:padding="4dp"
+            android:src="@drawable/flecha_derecha"
+            android:contentDescription="Ver detalles del pedido"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

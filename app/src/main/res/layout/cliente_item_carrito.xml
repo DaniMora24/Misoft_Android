@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <!-- FOTOGRAFÍA DEL PRODUCTO -->
+        <ImageView
+            android:id="@+id/imgProductoCarrito"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/usuario"
+            android:contentDescription="Fotografía del producto"/>
+
+        <!-- INFORMACIÓN DEL PRODUCTO -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <!-- NOMBRE -->
+            <TextView
+                android:id="@+id/txtNombreCarrito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre del producto"
+                android:textColor="#6A4C93"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:maxLines="2"
+                android:ellipsize="end"/>
+
+            <!-- PRECIO UNITARIO -->
+            <TextView
+                android:id="@+id/txtPrecioCarrito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="$0"
+                android:textColor="#D46AA7"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+
+            <!-- SELECTOR DE CANTIDAD -->
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/selector_cantidad"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <!-- RESTAR -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnMenosCarrito"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:text="-"
+                    android:textColor="#7D6BB2"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="20dp"
+                    android:background="#A6A6A6"/>
+
+                <!-- CANTIDAD ACTUAL -->
+                <TextView
+                    android:id="@+id/txtCantidadCarrito"
+                    android:layout_width="38dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="#000000"
+                    android:textSize="16sp"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="20dp"
+                    android:background="#A6A6A6"/>
+
+                <!-- SUMAR -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSumarCarrito"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:text="+"
+                    android:textColor="#7D6BB2"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <!-- SUBTOTAL DEL PRODUCTO -->
+            <TextView
+                android:id="@+id/txtSubtotalProducto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="Subtotal: $0"
+                android:textColor="#888888"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+        <!-- ELIMINAR PRODUCTO -->
+        <ImageView
+            android:id="@+id/imgEliminarProductoCarrito"
+            android:layout_width="32dp"
+            android:layout_height="36dp"
+            android:padding="5dp"
+            android:src="@drawable/basura"
+            android:contentDescription="Eliminar producto"
+            android:clickable="true"
+            android:focusable="true"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

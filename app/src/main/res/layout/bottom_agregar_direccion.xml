@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:background="#FFF7FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/txtTituloDireccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nueva dirección"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#372344"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Completa los datos para recibir tu pedido."
+            android:textSize="13sp"
+            android:textColor="#786B80"/>
+
+        <!-- UBICACIÓN DE GOOGLE MAPS -->
+        <TextView
+            android:id="@+id/txtUbicacionMapa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#F4EDF9"
+            android:padding="14dp"
+            android:text="📍 Ubicación seleccionada en Google Maps"
+            android:textSize="13sp"
+            android:textColor="#543867"/>
+
+
+        <!-- CAMBIAR UBICACIÓN AL EDITAR -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCambiarUbicacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Cambiar ubicación en el mapa"
+            android:textColor="#6A4C93"
+            android:visibility="gone"
+            app:backgroundTint="#F4EDF9"
+            app:cornerRadius="14dp"
+            app:strokeColor="#9B7AE0"
+            app:strokeWidth="1dp"/>
+
+
+        <!-- NOMBRE DE LA DIRECCIÓN -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Nombre de la dirección"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#975EB1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNombreDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"
+                android:maxLines="1"
+                android:text="Casa"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- DIRECCIÓN -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Dirección *"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#975EB1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPostalAddress"
+                android:maxLines="2"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- CIUDAD -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Ciudad *"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#975EB1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtCiudad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"
+                android:maxLines="1"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- BARRIO -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Barrio"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#975EB1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtBarrio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"
+                android:maxLines="1"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- REFERENCIA -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Referencia de entrega"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#975EB1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtReferencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minLines="2"
+                android:maxLines="3"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- DIRECCIÓN PRINCIPAL -->
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkPrincipal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Establecer como dirección principal"
+            android:textColor="#543867"
+            app:buttonTint="#975EB1"/>
+
+        <!-- GUARDAR -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGuardarDireccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"
+            android:minHeight="52dp"
+            android:text="Guardar dirección"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#975EB1"
+            app:cornerRadius="14dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
