@@ -101,6 +101,12 @@
             android:name=".perfil_cliente.DireccionActivity"
             android:exported="false" />
 
+
+        <activity
+            android:name=".perfil_cliente.AyudaContactoActivity"
+            android:exported="false" />
+
+
         <!-- UBICACIÓN DE ENTREGA -->
         <activity
             android:name=".perfil_cliente.UbicacionActivity"
